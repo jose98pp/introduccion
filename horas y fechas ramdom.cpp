@@ -3,6 +3,8 @@
 #include <ctime>
 using namespace std;
 
+const int TAM = 5;
+
 struct strTiempo {
 	int hora;
 	int minuto;
@@ -20,7 +22,11 @@ int randomicaHora() {
 }
 
 int randomicaMinuto() {
-	return rand() % 60; // Genera un número aleatorio entre 0 y 59 (para minutos y segundos)
+	return rand() % 60; // Genera un número aleatorio entre 0 y 59 (para minutos)
+}
+
+int randomicaSegundo() {
+	return rand() % 60; // Genera un número aleatorio entre 0 y 59 (para segundos)
 }
 
 int randomicaDia() {
@@ -39,7 +45,7 @@ void llenado(strTiempo t[], int cant) {
 	for (int i = 0; i < cant; ++i) {
 		t[i].hora = randomicaHora();
 		t[i].minuto = randomicaMinuto();
-		t[i].segundo = randomicaMinuto();
+		t[i].segundo = randomicaSegundo();
 	}
 }
 
@@ -66,7 +72,6 @@ void imprimir(strFecha f[], int cant) {
 }
 
 int main() {
-	const int TAM = 5;
 	srand(time(nullptr)); // Inicializa la semilla para generar números aleatorios
 	
 	strTiempo t[TAM];
